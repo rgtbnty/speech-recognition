@@ -16,7 +16,17 @@ const fi = document.getElementById('first');
 const s = document.getElementById('second');
 const t = document.getElementById('third');
 const fo = document.getElementById('four');
-		
+
+const fics = document.getElementById('firstcharsize');		
+/* 追加中〜 */
+function changeFontSize() {
+	fi.style.fontSize = event.target.value + "em";
+}
+fics.addEventListener("input", changeFontSize);
+
+/* 〜追加中 */
+
+
 /* テキスト（字幕）の一時保存 */
 var temptext = '';
 
