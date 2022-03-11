@@ -28,6 +28,7 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 		var changetext = 0;
 		var confchangetext = 0;
 		var temptext = '';
+		var change = false;
 		/* ブラウザで読み込むと自動的に文字起こしを開始 */
 		srcg.start();		
 		
@@ -66,6 +67,7 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 				/*	fo.innerHTML = t.innerHTML;
 					t.innerHTML = s.innerHTML;
 					s.innerHTML = fi.innerHTML; */
+				change = true;
 			});
 			srcg.addEventListener('speechend', function() {
 				console.log('Speech End');
@@ -107,12 +109,9 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 			//	if (m == 2) { /* このifはいらないのであとで消す */
 					/* 字幕の出し方（下が最新、上が古い）*/
 					setTimeout(function() {
-					}, 200); // ちょっと待たせることで、最新の結果が２番めに渡されるのを防ぐ
+					},300); // ちょっと待たせることで、最新の結果が２番めに渡されるのを防ぐ
 					
-					fo.innerHTML = t.innerHTML;
-					t.innerHTML = s.innerHTML;
-					s.innerHTML = temptext;
-					fi.innerHTML = e.results[0][0].transcript; // お試し
+										fi.innerHTML = e.results[0][0].transcript; // お試し
 
 					fi.style.setProperty('font-style', 'normal', 'important');
 					fi.style.setProperty('font-size', '1.7em', 'important');
@@ -130,6 +129,12 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 				fi.style.setProperty('font-style', 'italic', 'important');
 				fi.style.setProperty('font-size', '1.6em', 'important');
 				fi.style.setProperty('font-weight', 'normal', 'important');
+				if (change) {
+					fo.innerHTML = t.innerHTML;
+					t.innerHTML = s.innerHTML;
+					s.innerHTML = temptext;
+					change = false;
+				}
 			}
 	}	
 
