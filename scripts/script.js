@@ -21,9 +21,10 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 		const s = document.getElementById('second');
 		const t = document.getElementById('third');
 		const fo = document.getElementById('four');
-		
+		const temp = document.getElementById('temp');	
 		/* 開発用 */
 		const test = document.getElementById('test');
+		var stopspeech = 0; /* 喋り終わる直前のものも追加されてしまうのを防ぎたい */
 
 		/* ブラウザで読み込むと自動的に文字起こしを開始 */
 		srcg.start();		
@@ -51,25 +52,66 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 				}
 			}
 			*/
-			test.innerHTML = e.results[0][0].transcript;
 			
+			srcg.addEventListener('soundstart', function() {
+				console.log('Sound Start');
+			});
+			srcg.addEventListener('soundend', function() {
+				console.log('Sound End');
+			});
+			srcg.addEventListener('speechstart', function() {
+				console.log('Speech Start');
+								});
+			srcg.addEventListener('speechend', function() {
+				console.log('Speech End');
+			});
+			/* 追加中 */ /*
+			srcg.addEventListener('soundstart', event => function() {
+			fo.innerHTML = t.innerHTML;
+			t.innerHTML = s.innerHTML;
+			s.innerHTML = fi.innerHTML;
+			});		
+			srcg.addEventListener('soundstart', function() {
+				console.log('Sound Start');
+			});
+			srcg.addEventListener('soundend', function() {
+				console.log('Sound End');
+			});
+			srcg.addEventListener('speechstart', function() {
+				console.log('Speech Start');
+			});
+			srcg.addEventListener('speechend', function() {
+				console.log('Speech End');
+			});
+		*/	/*	追加中	*/			
+			test.innerHTML = e.results[0][0].transcript; // 確定　使う
+	//		temp.innerHTML = e.results[0][0].transcript; // お試し
+			var f1 = document.getElementById('first');
 			/* test.innerHTML = e.results[0][0].transcript */
 
 			/* 認識が確定したら結果を出力 */
 			/* 根っこの部分　基本的に触らない */
-			if (e.results[0].isFinal) {
+			if (e.results[0].isFinal ) {
 				var autotext = e.results[0][0].transcript
 				console.log(e);
 				console.log(autotext);
 			/*	content.innerHTML += '<div>' + autotext + '</div>';*/
 				
-				if (m == 2) { /* このifはいらないのであとで消す */
+				//first.style.font-style = "normal";
+				//f1.style.font-style = "normal";
+			//	if (m == 2) { /* このifはいらないのであとで消す */
 					/* 字幕の出し方（下が最新、上が古い）*/
 					fo.innerHTML = t.innerHTML;
 					t.innerHTML = s.innerHTML;
 					s.innerHTML = fi.innerHTML;
-					fi.innerHTML = autotext;
-				}
+			//		fi.innerHTML = autotext;
+			//	} 
+			
+				fi.innerHTML = e.results[0][0].transcript; // お試し
+			}
+			else { /* おためし　*/
+				//first.style.font-style = "italic";
+				fi.innerHTML = e.results[0][0].transcript;
 			}
 	}	
 
