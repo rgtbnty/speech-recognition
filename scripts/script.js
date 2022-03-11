@@ -12,19 +12,12 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 		srcg.lang = 'ja-JP';
 		
 		/* Id周り */
-		/* スタート・ストップボタンはあとで実装する */
-		const on = document.getElementById('on');
-		const off = document.getElementById('off');
-	/*	const btn = document.getElementById('btn');*/
-	/*	const content = document.getElementById('content'); */
 		const fi = document.getElementById('first');
 		const s = document.getElementById('second');
 		const t = document.getElementById('third');
 		const fo = document.getElementById('four');
-		const temp = document.getElementById('temp');	
-		/* 開発用 */
-		const test = document.getElementById('test');
-		var stopspeech = 0; /* 喋り終わる直前のものも追加されてしまうのを防ぎたい */
+				/* 開発用 */
+				var stopspeech = 0; /* 喋り終わる直前のものも追加されてしまうのを防ぎたい */
 		var changetext = 0;
 		var confchangetext = 0;
 		var temptext = '';
@@ -91,8 +84,7 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 				console.log('Speech End');
 			});
 		*/	/*	追加中	*/			
-			test.innerHTML = e.results[0][0].transcript; // 確定　使う
-	//		temp.innerHTML = e.results[0][0].transcript; // お試し
+			//		temp.innerHTML = e.results[0][0].transcript; // お試し
 		//	var f1 = document.getElementById('first');
 			/* test.innerHTML = e.results[0][0].transcript */
 
