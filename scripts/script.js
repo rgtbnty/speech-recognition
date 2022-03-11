@@ -133,6 +133,10 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 					fo.innerHTML = t.innerHTML;
 					t.innerHTML = s.innerHTML;
 					s.innerHTML = temptext;
+					s.style.setProperty('font-style', 'normal', 'important');
+					s.style.setProperty('font-size', '1.4em', 'important');
+					s.style.setProperty('font-weight', 'normal', 'important');
+					
 					change = false;
 				}
 			}
