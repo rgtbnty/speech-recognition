@@ -108,9 +108,9 @@ SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 				//f1.style.font-style = "normal"; // CSSの値を変えて、認識後はノーマルにしたい
 			//	if (m == 2) { /* このifはいらないのであとで消す */
 					/* 字幕の出し方（下が最新、上が古い）*/
-					setTimeout(function() {
+			/*		setTimeout(function() {
 					},300); // ちょっと待たせることで、最新の結果が２番めに渡されるのを防ぐ
-					
+			*/		
 										fi.innerHTML = e.results[0][0].transcript; // お試し
 
 					fi.style.setProperty('font-style', 'normal', 'important');
