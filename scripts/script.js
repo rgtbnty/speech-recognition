@@ -70,6 +70,7 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 		
 	/* 喋り終わったら　の処理　elseは喋り中 */
 	if (e.results[0].isFinal ) {
+		test.innerHTML = '';
 		/* 今喋ったことを出力する*/
 		fi.innerHTML = e.results[0][0].transcript;
 		
@@ -85,12 +86,12 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 	}
 	else { /* 喋っているときに、リアルタイムで不完全な字幕をつける*/
 		/* 字幕の表示*/
-		fi.innerHTML = e.results[0][0].transcript;
-		
+		//fi.innerHTML = e.results[0][0].transcript;
+		fi.innerHTML = '';
 		/* 喋っているときは、文字の見た目を変える（CSSの値を変えることで）*/
-		fi.style.setProperty('font-style', 'italic', 'important');
-		fi.style.setProperty('font-size', '1.6em', 'important');
-		fi.style.setProperty('font-weight', 'normal', 'important');
+		test.style.setProperty('font-style', 'italic', 'important');
+		test.style.setProperty('font-size', '1.6em', 'important');
+		test.style.setProperty('font-weight', 'normal', 'important');
 
 
 
