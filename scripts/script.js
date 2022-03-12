@@ -17,11 +17,13 @@ const s = document.getElementById('second');
 const t = document.getElementById('third');
 const fo = document.getElementById('four');
 const test = document.getElementById('test');
+const trl = document.getElementById('translate');
 
 /* 文字の大きさを動的に変更するためのID */
 const fics = document.getElementById('firstcharsize');		
 const secs = document.getElementById('secondcharsize');		
 const otcs = document.getElementById('otherscharsize');		
+const trcs = document.getElementById('trlcharsize');
 
 /* 文字の大きさをスライダーで動的に変更 */
 function changeFontSize() {
@@ -40,6 +42,11 @@ function changeOtFontSize() {
 	fo.style.fontSize = event.target.value + "em";
 }
 otcs.addEventListener("input", changeOtFontSize);
+
+function changeTrlFontSize() {
+	trl.style.fontSize = event.target.value + "em";
+}
+trcs.addEventListener("input", changeTrlFontSize);
 /*  */
 
 
