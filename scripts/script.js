@@ -17,14 +17,28 @@ const s = document.getElementById('second');
 const t = document.getElementById('third');
 const fo = document.getElementById('four');
 
+/* 文字の大きさを動的に変更するためのID */
 const fics = document.getElementById('firstcharsize');		
-/* 追加中〜 */
+const secs = document.getElementById('secondcharsize');		
+const otcs = document.getElementById('otherscharsize');		
+
+/* 文字の大きさをスライダーで動的に変更 */
 function changeFontSize() {
 	fi.style.fontSize = event.target.value + "em";
 }
 fics.addEventListener("input", changeFontSize);
 
-/* 〜追加中 */
+function changeSeFontSize() {
+	s.style.fontSize = event.target.value + "em";
+}
+secs.addEventListener("input", changeSeFontSize);
+
+function changeOtFontSize() {
+	t.style.fontSize = event.target.value + "em";
+	fo.style.fontSize = event.target.value + "em";
+}
+otcs.addEventListener("input", changeOtFontSize);
+/*  */
 
 
 /* テキスト（字幕）の一時保存 */
