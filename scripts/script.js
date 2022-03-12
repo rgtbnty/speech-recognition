@@ -95,9 +95,13 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 
 
 		/* 追加中〜 */
-		let inter = '';
+		test.innerHTML = '';
+		var inter = '';
 		for (var j = e.resultIndex; j < e.results.length; ++j) {
-			test.innerHTML = e.results[j][0].transcript;
+			inter = e.results[j][0].transcript;
+			if (inter != test.innerHTML) {
+				test.innerHTML += inter;
+			}
 		}	
 		//test.innerHTML = inter;
 
