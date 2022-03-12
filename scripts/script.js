@@ -26,6 +26,7 @@ const otcs = document.getElementById('otherscharsize');
 /* 文字の大きさをスライダーで動的に変更 */
 function changeFontSize() {
 	fi.style.fontSize = event.target.value + "em";
+	test.style.fontSize = (event.target.value) -(0.1) + "em";
 }
 fics.addEventListener("input", changeFontSize);
 
@@ -76,7 +77,7 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 		
 		/* 最新の結果（今しゃべったこと）を強調する　CSSの値を変更する */
 		fi.style.setProperty('font-style', 'normal', 'important');
-		fi.style.setProperty('font-size', '1.7em', 'important');
+		fi.style.setProperty('font-size', fi.style.fontSize, 'important');
 		fi.style.setProperty('font-weight', 'bold', 'important');
 
 		/* 今喋ったばかりのことを保存しておく*/
@@ -89,8 +90,9 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 		//fi.innerHTML = e.results[0][0].transcript;
 		fi.innerHTML = '';
 		/* 喋っているときは、文字の見た目を変える（CSSの値を変えることで）*/
+		var testTextSize = test.style.fontSize;
 		test.style.setProperty('font-style', 'italic', 'important');
-		test.style.setProperty('font-size', '1.6em', 'important');
+		test.style.setProperty('font-size', testTextSize, 'important');
 		test.style.setProperty('font-weight', 'normal', 'important');
 
 
@@ -118,7 +120,7 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 				s.innerHTML = temptext; // さっき喋ったことを確定したときに、１番目をtemptextに保存したのでそれを使う
 				/* 一番目（最新）の字幕の文字を強調する　（CSSの値を変更する）*/
 				s.style.setProperty('font-style', 'normal', 'important');
-				s.style.setProperty('font-size', '1.4em', 'important');
+				s.style.setProperty('font-size', s.style.fontSize, 'important');
 				s.style.setProperty('font-weight', 'normal', 'important');
 					
 				/* フラグの調整*/
