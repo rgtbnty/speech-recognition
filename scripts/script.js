@@ -16,6 +16,7 @@ const fi = document.getElementById('first');
 const s = document.getElementById('second');
 const t = document.getElementById('third');
 const fo = document.getElementById('four');
+const test = document.getElementById('test');
 
 /* 文字の大きさを動的に変更するためのID */
 const fics = document.getElementById('firstcharsize');		
@@ -71,7 +72,7 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 	if (e.results[0].isFinal ) {
 		/* 今喋ったことを出力する*/
 		fi.innerHTML = e.results[0][0].transcript;
-
+		
 		/* 最新の結果（今しゃべったこと）を強調する　CSSの値を変更する */
 		fi.style.setProperty('font-style', 'normal', 'important');
 		fi.style.setProperty('font-size', '1.7em', 'important');
@@ -90,6 +91,19 @@ srcg.onresult = function(e) { /* この関数の中でいろいろする */
 		fi.style.setProperty('font-style', 'italic', 'important');
 		fi.style.setProperty('font-size', '1.6em', 'important');
 		fi.style.setProperty('font-weight', 'normal', 'important');
+
+
+
+		/* 追加中〜 */
+		let inter = '';
+		for (var j = e.resultIndex; j < e.results.length; ++j) {
+			test.innerHTML = e.results[j][0].transcript;
+		}	
+		//test.innerHTML = inter;
+
+		/* 〜追加中 */
+
+
 
 			/* 喋りだしたら、字幕をずらす 変数changeをフラグとして使っている*/
 			if (change) {
