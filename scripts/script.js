@@ -8,8 +8,11 @@ srcg.continuous = false;
 /* 認識途中の結果も扱う true*/
 srcg.interimResults = true;
 
+
+/* 英語を認識する */
+srcg.lang = 'en';
 /* 日本語を認識する */
-srcg.lang = 'ja-JP';
+//srcg.lang = 'ja-JP';
 		
 /* 定数にCSSのIdをもたせる */
 const fi = document.getElementById('first');
